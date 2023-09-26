@@ -13,36 +13,6 @@ class LinkedList{
   isEmpty(){
     return this.size===0
   }
-  getSize(){
-    return this.size
-  }
-  print(){
-    if(this.isEmpty()){
-      console.log('list is empty')
-      return
-    }
-    let curr = this.head
-    let values = ''
-    while(curr){
-      values+=curr.value+' '
-      curr = curr.next
-    }
-    console.log('values: ', values.trim())
-    return
-  }
-  append(value){
-    const node = new Node(value)
-    if(this.isEmpty()){
-      this.head = node
-    }else{
-      let curr = this.head
-      while(curr.next){
-        curr = curr.next
-      }
-      curr.next = node
-    }
-    this.size++
-  }
   //Remove element by index
   removeFrom(index){
     if(index<0 || index>this.size-1){
@@ -104,17 +74,3 @@ class LinkedList{
   }
 }
 
-const list = new LinkedList()
-console.log('is empty: ', list.isEmpty())
-console.log('size: ', list.getSize())
-list.append(10)
-list.append(20)
-list.append(30)
-list.append(20)
-list.print()
-console.log('removed node by index: ', list.removeFrom(10))
-list.print()
-console.log('removed node by value: ', list.removeVal(100))
-list.print()
-list.removeValues(20)
-list.print()
